@@ -9,6 +9,8 @@ services:
     image: redis
   server:
     build: .
+    volumes:
+      - ./public/songs:/app/public/songs:ro
   nginx:
     image: nginx
     volumes:
