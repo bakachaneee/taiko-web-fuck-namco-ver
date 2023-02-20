@@ -8,7 +8,7 @@ from ffmpy import FFmpeg
 
 
 parser = argparse.ArgumentParser(description='Generate song previews.')
-parser.add_argument('site', help='Instance URL, eg. https://taiko.bui.pm')
+parser.add_argument('site', help='Instance URL, eg. https://taiko.pages.dev')
 parser.add_argument('song_dir', help='Path to songs directory, eg. /srv/taiko/public/taiko/songs')
 parser.add_argument('--overwrite', action='store_true', help='Overwrite existing previews')
 args = parser.parse_args()
