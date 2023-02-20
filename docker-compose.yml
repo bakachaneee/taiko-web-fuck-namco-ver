@@ -3,6 +3,8 @@ version: "3.9"
 services:
   db:
     image: mongo
+    volumes:
+      - ./data:/db/data
   redis:
     image: redis
   server:
@@ -14,3 +16,9 @@ services:
       - ./public:/pub:ro
     ports:
       - 9999:80
+  mongo-gui:
+    image: ugleiton/mongo-gui
+    ports:
+      - 4321:4321
+    environment:
+      - MONGO_URL=mongodb://db:27017
