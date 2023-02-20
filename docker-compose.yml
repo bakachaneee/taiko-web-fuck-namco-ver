@@ -4,7 +4,7 @@ services:
   db:
     image: mongo
     volumes:
-      - ./data:/db/data
+      - ./data:/data/db
   redis:
     image: redis
   server:
