@@ -53,7 +53,7 @@ REDIS = {
 SECRET_KEY = 'change-me'
 
 # Git repository base URL.
-URL = 'https://github.com/bui/taiko-web/'
+URL = 'https://github.com/bakachaneee/taiko-web-fuck-namco-ver/'
 
 # Google Drive API.
 GOOGLE_CREDENTIALS = {
