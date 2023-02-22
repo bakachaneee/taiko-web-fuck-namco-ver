@@ -5,12 +5,16 @@ Running instance: [https://taiko.pages.dev](https://taiko.pages.dev)
 
 Still in development. Works best with Chrome.
 
-## Setup
+## Note for Windows
 
-For Windows users, it is recommended to adjust the auto CRLF settings to `input` or `false` before cloning or checking out to ensure the shell script runs correctly:
+For Windows users, run this command and re-clone this repository:
 ```bash
-git config --global core.autocrlf input
+git config --global --unset core.autocrlf
 ```
+
+Because came to be there are no different because of line endings between operating systems by this repository.
+
+## Setup
 
 To launch the taiko-web instance, simply run:
 ```bash
