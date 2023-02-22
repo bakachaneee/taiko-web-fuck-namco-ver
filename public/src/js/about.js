@@ -37,7 +37,7 @@
 		this.getLink(this.linkIssues).innerText = strings.about.issues
 		this.linkIssues.setAttribute("alt", strings.about.issues)
 		var versionUrl = gameConfig._version.url
-		this.getLink(this.linkIssues).href = versionUrl + "issues"
+		this.getLink(this.linkIssues).href = versionUrl + "/issues"
 		this.items.push(this.linkIssues)
 		
 		var contactEmail = gameConfig.email

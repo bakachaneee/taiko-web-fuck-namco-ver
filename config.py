@@ -52,8 +52,8 @@ REDIS = {
 # Secret key used for sessions.
 SECRET_KEY = 'change-me'
 
-# Git repository base URL.
-URL = 'https://github.com/bakachaneee/taiko-web-fuck-namco-ver/'
+# Git repository URL without trailing slash.
+URL = 'https://github.com/bakachaneee/taiko-web-fuck-namco-ver'
 
 # Google Drive API.
 GOOGLE_CREDENTIALS = {
