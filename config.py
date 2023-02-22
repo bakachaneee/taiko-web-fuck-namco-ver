@@ -32,7 +32,7 @@ PLUGINS = [{
 }]
 
 # Filetype to use for song previews. (mp3/ogg)
-PREVIEW_TYPE = 'mp3'
+PREVIEW_TYPE = 'ogg'
 
 # MongoDB server settings.
 MONGO = {

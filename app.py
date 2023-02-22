@@ -435,7 +435,7 @@ def route_api_preview():
     if not prev_path:
         return redirect(get_config()['songs_baseurl'] + '%s/main.%s' % (song_id, song_ext))
 
-    return redirect(get_config()['songs_baseurl'] + '%s/preview.mp3' % song_id)
+    return redirect(get_config()['songs_baseurl'] + '%s/preview.%s' % (song_id, get_config()['preview_type']))
 
 
 @app.route(basedir + 'api/songs')
@@ -698,16 +698,24 @@ def route_api_privacy():
 
 def make_preview(song_id, song_type, song_ext, preview):
     song_path = 'public/songs/%s/main.%s' % (song_id, song_ext)
-    prev_path = 'public/songs/%s/preview.mp3' % song_id
+    prev_path = 'public/songs/%s/preview.%s' % (song_id, get_config()['preview_type'])
 
     if os.path.isfile(song_path) and not os.path.isfile(prev_path):
         if not preview or preview <= 0:
             print('Skipping #%s due to no preview' % song_id)
             return False
 
-        print('Making preview.mp3 for song #%s' % song_id)
+        print('Making ' + os.path.basename(prev_path) + ' for song #%s' % song_id)
+
+        if get_config()['preview_type'] == "mp3":
+            ff_lib_name = "mp3lame"
+        elif get_config()['preview_type'] == "ogg":
+            ff_lib_name = "vorbis"
+        else:
+            raise ValueError("Please use mp3/ogg preview type. Check your config.")
+
         ff = FFmpeg(inputs={song_path: '-ss %s' % preview},
-                    outputs={prev_path: '-codec:a libmp3lame -ar 32000 -b:a 92k -y -loglevel panic'})
+                    outputs={prev_path: '-codec:a lib%s -ar 32000 -b:a 92k -y -loglevel panic' % ff_lib_name})
         ff.run()
 
     return prev_path
