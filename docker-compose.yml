@@ -10,7 +10,7 @@ services:
   server:
     build: .
     volumes:
-      - ./public/songs:/app/public/songs:ro
+      - ./public/songs:/app/public/songs
   nginx:
     image: nginx
     volumes:
